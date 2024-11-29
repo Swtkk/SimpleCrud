@@ -1,0 +1,20 @@
+﻿GET http://localhost:5218/api/Country
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2024.2.7
+Accept-Encoding: br, deflate, gzip, x-gzip
+content-length: 0
+
+<> 2024-11-27T173338.200.json
+
+###
+
+GET http://localhost:5218/weatherforecast/
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2024.2.7
+Accept-Encoding: br, deflate, gzip, x-gzip
+content-length: 0
+
+<> 2024-11-27T173303.200.json
+
+###
+

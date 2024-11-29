@@ -1,0 +1,10 @@
+GET http://localhost:5218/api/Country
+Accept: application/json
+
+###
+@SimpleCrudProject_HostAddress = http://localhost:5218
+
+GET {{SimpleCrudProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

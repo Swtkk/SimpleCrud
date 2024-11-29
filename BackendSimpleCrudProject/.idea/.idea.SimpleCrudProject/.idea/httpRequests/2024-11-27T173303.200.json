@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2024-11-28",
+    "temperatureC": 12,
+    "summary": "Cool",
+    "temperatureF": 53
+  },
+  {
+    "date": "2024-11-29",
+    "temperatureC": 45,
+    "summary": "Freezing",
+    "temperatureF": 112
+  },
+  {
+    "date": "2024-11-30",
+    "temperatureC": -10,
+    "summary": "Mild",
+    "temperatureF": 15
+  },
+  {
+    "date": "2024-12-01",
+    "temperatureC": -10,
+    "summary": "Bracing",
+    "temperatureF": 15
+  },
+  {
+    "date": "2024-12-02",
+    "temperatureC": 52,
+    "summary": "Freezing",
+    "temperatureF": 125
+  }
+]

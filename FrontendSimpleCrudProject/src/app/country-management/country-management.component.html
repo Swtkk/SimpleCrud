@@ -1,0 +1,134 @@
+<div class="container mt-5">
+  <div class="card shadow-sm mb-5">
+    <div class="card-body">
+      <h2 class="card-title mb-4 text-center">Dodaj kraj</h2>
+      <form (ngSubmit)="addCountry()">
+        <div class="mb-3">
+          <label for="countryName" class="form-label">Nazwa kraju:</label>
+          <input
+            type="text"
+            id="countryName"
+            name="name"
+            [(ngModel)]="newCountry.name"
+            required
+            class="form-control"
+            placeholder="Wprowadź nazwę kraju"
+          />
+        </div>
+        <div *ngFor="let city of newCountry.cities; let i = index" class="mb-3">
+          <label class="form-label">Miasto {{ i + 1 }}:</label>
+          <div class="input-group">
+            <input
+              type="text"
+              [(ngModel)]="city.name"
+              name="city-{{ i }}"
+              required
+              class="form-control"
+              placeholder="Wprowadź nazwę miasta"
+            />
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              (click)="removeCityField(i)"
+            >
+              Usuń
+            </button>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="button" (click)="addCityField()" class="btn btn-outline-secondary">
+            Dodaj miasto
+          </button>
+          <button type="submit" class="btn btn-primary">Dodaj kraj</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lista  -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title mb-4 text-center">Lista krajów</h2>
+      <table class="table table-bordered table-hover">
+        <thead class="table-light">
+        <tr>
+          <th class="text-center">Kraj</th>
+          <th class="text-center">Miasta</th>
+          <th class="text-center">Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let country of countries">
+          <!-- Kraj -->
+          <td class="align-middle text-center">
+            <div *ngIf="editingCountryId === country.id; else showCountry">
+              <div class="input-group">
+                <input
+                  type="text"
+                  [(ngModel)]="country.name"
+                  class="form-control"
+                />
+
+              </div>
+            </div>
+            <ng-template #showCountry>
+              <span>{{ country.name }}</span>
+
+            </ng-template>
+          </td>
+
+          <!-- Miasta -->
+          <td>
+            <ul class="list-group">
+              <li *ngFor="let city of country.cities" class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span *ngIf="!editingCityId || editingCityId !== city.id">
+                    {{ city.name }} (Temperatura: {{ city.temperature || 'Brak danych' }})
+                  </span>
+                  <div *ngIf="editingCityId === city.id" class="d-flex">
+                    <input
+                      type="text"
+                      [(ngModel)]="city.name"
+                      class="form-control me-2"
+                    />
+                    <button class="btn btn-sm btn-success me-2" (click)="saveCity(city, country.id)">
+                      Zapisz
+                    </button>
+                    <button class="btn btn-sm btn-danger" (click)="cancelEditCity(city)">
+                      Anuluj
+                    </button>
+                  </div>
+                  <div *ngIf="!editingCityId || editingCityId !== city.id">
+                    <button class="btn btn-sm btn-warning me-2" (click)="startEditCity(city)">
+                      Edytuj
+                    </button>
+                    <button class="btn btn-sm btn-danger" (click)="deleteCity(city.id)">
+                      Usuń
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="mt-3">
+              <input
+                type="text"
+                [(ngModel)]="newCityNames[country.id]"
+                class="form-control mb-2"
+                placeholder="Dodaj nowe miasto"
+              />
+              <button class="btn btn-outline-primary btn-sm" (click)="addCityToCountry(country.id)">
+                Dodaj miasto
+              </button>
+            </div>
+          </td>
+
+
+          <td class="align-middle text-center">
+            <button class="btn btn-danger" (click)="deleteCountry(country.id)">Usuń kraj</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
