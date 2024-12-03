@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using NuGet.Protocol;
 
 namespace SimpleCrudProject.WeatherService;
 
@@ -21,7 +22,6 @@ public class WeatherService
 
 
             var response = await _httpClient.GetAsync(url);
-
             if (!response.IsSuccessStatusCode)
             {
                 Console.WriteLine($"Weatherbit API error: {response.StatusCode}");
@@ -29,12 +29,14 @@ public class WeatherService
             }
 
             var json = await response.Content.ReadAsStringAsync();
-            Console.WriteLine($"Weatherbit response: {json}");
-
+            Console.WriteLine($"Weatherbit: {json}");
+            
             var data = JsonSerializer.Deserialize<WeatherResponse>(json, new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             });
+
+            Console.WriteLine(data?.Data?.FirstOrDefault()?.Temp);
 
             return data?.Data?.FirstOrDefault()?.Temp;
         }

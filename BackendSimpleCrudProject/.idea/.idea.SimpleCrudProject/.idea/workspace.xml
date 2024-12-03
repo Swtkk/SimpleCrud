@@ -9,33 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91a0ddb1-53fe-4e90-aa6f-748cc78666ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/error-handling/error.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/Controller/CountryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/Controller/CountryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/bin/Debug/net9.0/SimpleCrudProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/bin/Debug/net9.0/SimpleCrudProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/bin/Debug/net9.0/SimpleCrudProject.exe" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/bin/Debug/net9.0/SimpleCrudProject.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/bin/Debug/net9.0/SimpleCrudProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/bin/Debug/net9.0/SimpleCrudProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/SimpleCrudProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/ref/SimpleCrudProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/ref/SimpleCrudProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/refint/SimpleCrudProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/Debug/net9.0/refint/SimpleCrudProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/SimpleCrudProject.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/SimpleCrudProject.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCrudProject/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCrudProject/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/app.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/country-management/country-management.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/country-management/country-management.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/country-management/country-management.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/country-management/country-management.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/country-management/country-management.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendSimpleCrudProject/src/app/country-management/country-management.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleCrudProject/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleCrudProject/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleCrudProject/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleCrudProject/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleCrudProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleCrudProject/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +23,20 @@
     <option name="autoShow" value="false" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/SimpleCrudProject" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Swtkk&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Swtkk/SimpleCrud.git&quot;,
+    &quot;accountId&quot;: &quot;3d813ce5-1142-49a8-b3de-7cd0da781017&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/25edf3e734d0c76e87b29a9954b8b4a7383648a69396554742e5529205e2dd7/UriExt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/621526284d3e4868b98948aff942206525763e57e194a27623b66c384466/ServiceProviderServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -61,27 +50,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.SimpleCrudProject: http.executor": "Run",
-    "HTTP Request.SimpleCrudProject | #1.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.SimpleCrudProject: http.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.SimpleCrudProject | #1.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.SimpleCrudProject: http">
+    <configuration name="SimpleCrudProject | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/SimpleCrudProject/SimpleCrudProject.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="SimpleCrudProject | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/SimpleCrudProject/SimpleCrudProject.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -89,6 +81,36 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/SimpleCrudProject/SimpleCrudProject.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
       <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="SimpleCrudProject: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/SimpleCrudProject/SimpleCrudProject.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="SimpleCrudProject: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/SimpleCrudProject/SimpleCrudProject.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -135,6 +157,8 @@
       <workItem from="1732894303397" duration="15000" />
       <workItem from="1732899354330" duration="1141000" />
       <workItem from="1732901419031" duration="157000" />
+      <workItem from="1733167828902" duration="2894000" />
+      <workItem from="1733172572742" duration="688000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-GET http://localhost:5218/api/Country
+GET http://localhost:5218/api/City
 Accept: application/json
 
 ###

@@ -16,9 +16,10 @@ namespace SimpleCrudProject.Controller
     public class CityController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-
-        public CityController(ApplicationDbContext context)
+        private readonly WeatherService.WeatherService _weatherService;
+        public CityController(ApplicationDbContext context,WeatherService.WeatherService weatherService)
         {
+           _weatherService = weatherService;
             _context = context;
         }
 
@@ -26,11 +27,20 @@ namespace SimpleCrudProject.Controller
         [HttpGet]
         public async Task<ActionResult<IEnumerable<City>>> GetCities()
         {
-            return await _context.Cities.ToListAsync();
-        }
 
+            var cities = await _context.Cities.ToListAsync();
+
+            foreach (var city in cities)
+            {
+                var temperature = await _weatherService.GetWeatherByCity(city.Name);
+                if(temperature != null) city.Temperature = temperature;
+            }
+
+            await _context.SaveChangesAsync();
+            return Ok(cities);
+        }
         // GET: api/City/5
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<CityDto>> GetCity(int id)
         {
             var city = await _context.Cities.FindAsync(id);
@@ -39,7 +49,7 @@ namespace SimpleCrudProject.Controller
             {
                 return NotFound();
             }
-
+            
             var cityDto = new CityDto
             {
                 Id = city.Id,
@@ -52,9 +62,9 @@ namespace SimpleCrudProject.Controller
 
 
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCity(int id, CityDto city,
-            [FromServices] WeatherService.WeatherService weatherService)
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> PutCity(int id, CityDto city
+            )
         {
             if (id != city.Id)
             {
@@ -68,18 +78,17 @@ namespace SimpleCrudProject.Controller
             }
 
             existingCity.Name = city.Name;
-            var newTemperature = await weatherService.GetWeatherByCity(city.Name);
+            var newTemperature = await _weatherService.GetWeatherByCity(city.Name);
             if (newTemperature == null)
             {
-                return BadRequest(new { Message = "Cannot fetch weather data for the specified city." });
+                return BadRequest(new { Message = $"Brak temp dla miasta {city.Name}." });
             }
 
-            Console.WriteLine($"Updated temperature for {city.Name}: {newTemperature}");
             existingCity.Temperature = newTemperature;
 
             if (_context.Cities.Any(e => e.Name.ToLower() == city.Name.ToLower()))
             {
-                return Conflict(new { Message = "City name already exists in the database." });
+                return Conflict(new { Message = $"Miasto {city.Name} juz istnieje." });
             }
 
             try
@@ -104,28 +113,27 @@ namespace SimpleCrudProject.Controller
 
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<CityDto>> PostCity(CreateCityDto createCityDto,
-            [FromServices] WeatherService.WeatherService weatherService)
+        public async Task<ActionResult<CityDto>> PostCity(CreateCityDto createCityDto)
         {
             var country = await _context.Countries.FindAsync(createCityDto.CountryId);
             if (country == null)
             {
-                return BadRequest(new { Message = "Cannot add city. Country does not exist." });
+                return BadRequest(new { Message = "" });
             }
 
             if (await _context.Cities.AnyAsync(c =>
                     c.Name.ToLower() == createCityDto.Name.ToLower() && c.CountryId == createCityDto.CountryId))
             {
-                return BadRequest(new { Message = "City already exists in the specified country." });
+                return BadRequest(new { Message = $"Miast {createCityDto.Name} juz istnieje w tym kraju" });
             }
 
-            var temperature = await weatherService.GetWeatherByCity(createCityDto.Name);
+            var temperature = await _weatherService.GetWeatherByCity(createCityDto.Name);
             if (temperature == null)
             {
-                return BadRequest(new { Message = "Cannot fetch weather data for the specified city." });
+                return BadRequest(new { Message = $"Brak temp dla miasta {createCityDto.Name}." });
             }
 
-            Console.WriteLine($"Fetched temperature for {createCityDto.Name}: {temperature}");
+            Console.WriteLine($"Temperatura {createCityDto.Name}: {temperature}");
 
             var city = new City
             {
@@ -146,7 +154,7 @@ namespace SimpleCrudProject.Controller
         }
 
         // DELETE: api/City/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteCity(int id)
         {
             var city = await _context.Cities.FindAsync(id);

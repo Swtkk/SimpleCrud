@@ -16,9 +16,11 @@ namespace SimpleCrudProject.Controller
     public class CountryController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly WeatherService.WeatherService _weatherService;
 
-        public CountryController(ApplicationDbContext context)
+        public CountryController(ApplicationDbContext context, WeatherService.WeatherService weatherService)
         {
+            _weatherService = weatherService;
             _context = context;
         }
 
@@ -27,15 +29,29 @@ namespace SimpleCrudProject.Controller
         public async Task<ActionResult<IEnumerable<CountryDto>>> GetCountries()
         {
             var countries = await _context.Countries
-                .Include(c => c.Cities) // Załaduj miasta powiązane z każdym krajem
+                .Include(c => c.Cities) 
                 .ToListAsync();
 
-         
+            foreach (var country in countries)
+            {
+                if (country.Cities == null)
+                {
+                    return NotFound();
+                    
+                };
+                foreach (var city in country.Cities)
+                {
+                    var temp = await _weatherService.GetWeatherByCity(city.Name);
+                    if (temp != null) city.Temperature = temp;;
+                }
+            }
+
+            await _context.SaveChangesAsync();
             var countryDto = countries.Select(country => new CountryDto
             {
                 Id = country.Id,
                 Name = country.Name,
-                Cities = country.Cities.Select(city => new CityDto
+                Cities = country.Cities?.Select(city => new CityDto
                 {
                     Id = city.Id,
                     Name = city.Name,
@@ -47,14 +63,14 @@ namespace SimpleCrudProject.Controller
         }
 
         // GET: api/Country/5
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<CountryDto>> GetCountry(int id)
         {
             var country = await _context.Countries
                 .Include(c => c.Cities)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
-            if (country == null)
+            if (country == null || country.Cities == null)
             {
                 return NotFound();
             }
@@ -76,10 +92,9 @@ namespace SimpleCrudProject.Controller
 
         // PUT: api/Country/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> PutCountry(int id, CountryDto countryDto)
         {
-         
             if (id != countryDto.Id)
             {
                 return BadRequest(new { Message = "ID in URL and body do not match." });
@@ -91,10 +106,8 @@ namespace SimpleCrudProject.Controller
                 return NotFound();
             }
 
-            // Zaktualizuj nazwę kraju
             country.Name = countryDto.Name;
 
-            // Zapisz zmiany
             try
             {
                 await _context.SaveChangesAsync();
@@ -112,35 +125,33 @@ namespace SimpleCrudProject.Controller
             return NoContent();
         }
 
-        [HttpPost("{id}/cities")]
-        public async Task<ActionResult<CityDto>> AddCityToCountry(int id, CreateCityDto createCity,
-            [FromServices] WeatherService.WeatherService weatherService)
+        [HttpPost("{id:int}/cities")]
+        public async Task<ActionResult<CityDto>> AddCityToCountry(int id, CreateCityDto createCity)
         {
-            // Znajdź kraj
             var country = await _context.Countries.Include(c => c.Cities).FirstOrDefaultAsync(c => c.Id == id);
             if (country == null)
             {
                 return NotFound(new { Message = "Country not found" });
             }
+
             if (country.Cities != null && country.Cities.Any(c => c.Name.ToLower().Equals(createCity.Name.ToLower())))
             {
                 return BadRequest(new { Message = "City already exists in this country." });
             }
 
-            var temperature = await weatherService.GetWeatherByCity(createCity.Name);
-           
+            var temperature = await _weatherService.GetWeatherByCity(createCity.Name);
+
             var city = new City
             {
                 Name = createCity.Name,
                 CountryId = id,
                 Temperature = temperature
-                
             };
 
             _context.Cities.Add(city);
             await _context.SaveChangesAsync();
 
-   
+
             var cityDto = new CityDto
             {
                 Id = city.Id,
@@ -154,7 +165,7 @@ namespace SimpleCrudProject.Controller
         // POST: api/Country
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<CountryDto>> PostCountry(CountryDto countryDto, [FromServices] WeatherService.WeatherService weatherService)
+        public async Task<ActionResult<CountryDto>> PostCountry(CountryDto countryDto)
         {
             if (await _context.Countries.AnyAsync(c => c.Name.ToLower() == countryDto.Name.ToLower()))
             {
@@ -166,8 +177,7 @@ namespace SimpleCrudProject.Controller
             {
                 foreach (var cityDto in countryDto.Cities)
                 {
-                   
-                    var temperature = await weatherService.GetWeatherByCity(cityDto.Name);
+                    var temperature = await _weatherService.GetWeatherByCity(cityDto.Name);
                     cities.Add(new City
                     {
                         Name = cityDto.Name,
@@ -198,8 +208,8 @@ namespace SimpleCrudProject.Controller
             });
         }
 
-    
-        [HttpDelete("{id}")]
+
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteCountry(int id)
         {
             var country = await _context.Countries.FindAsync(id);

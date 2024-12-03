@@ -1,0 +1,50 @@
+[
+  {
+    "id": 3,
+    "name": "Polska",
+    "cities": [
+      {
+        "id": 12,
+        "name": "Warszawa",
+        "temperature": 8.3
+      },
+      {
+        "id": 24,
+        "name": "Bielsk Podlaski",
+        "temperature": 4.1
+      },
+      {
+        "id": 25,
+        "name": "Gdańsk",
+        "temperature": 3.5
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Francja",
+    "cities": [
+      {
+        "id": 19,
+        "name": "Paryż",
+        "temperature": 13.3
+      },
+      {
+        "id": 20,
+        "name": "Marysylia",
+        "temperature": 13.4
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Norwegia",
+    "cities": [
+      {
+        "id": 23,
+        "name": "Oslo",
+        "temperature": 1.5
+      }
+    ]
+  }
+]
